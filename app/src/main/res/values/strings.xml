@@ -7,4 +7,7 @@
     <string name="order">order</string>
     <string name="price_default">0</string>
     <string name="quantity_default">0</string>
+    <string name="toppings">toppings</string>
+    <string name="whipped_cream_text">Whipped cream</string>
+    <string name="chocolate_text">Chocolate</string>
 </resources>
