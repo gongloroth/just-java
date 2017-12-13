@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:fillViewport="false"
     android:orientation="vertical"
     android:padding="10dp"
-    android:fillViewport="false"
     tools:context="com.gongloroth.justjava.MainActivity">
 
     <LinearLayout
@@ -27,20 +27,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:textSize="16sp"
+            android:onClick="onCheckboxClicked"
             android:paddingLeft="24dp"
             android:text="@string/whipped_cream_text"
-            android:onClick="onCheckboxClicked"/>
+            android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/chocolate_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:textSize="16sp"
+            android:onClick="onCheckboxClicked"
             android:paddingLeft="24dp"
             android:text="@string/chocolate_text"
-            android:onClick="onCheckboxClicked"/>
+            android:textSize="16sp" />
 
 
         <TextView
