@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setWhippedCreamCheckBox(R.id.whipped_cream_checkbox);
         setChocolateCheckBox(R.id.chocolate_checkbox);
+        setWhippedCreamCheckBox(R.id.whipped_cream_checkbox);
         /*
         setWhippedCreamCheckBox(R.id.whipped_cream_checkbox);
         getWhippedCreamCheckBox().setOnClickListener(new View.OnClickListener() {
@@ -50,14 +50,15 @@ public class MainActivity extends AppCompatActivity {
                     hasChocolate = chocolateCheckBox.isChecked();
             }
         }); */
+
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putInt("QUANTITY", quantity);
         outState.putInt("PRICE", price);
-        outState.putBoolean("WHIPPED_KEY",hasWhippedCream);
-        outState.putBoolean("CHOCOLATE_KEY",hasChocolate);
+        outState.putBoolean("WHIPPED_KEY", hasWhippedCream);
+        outState.putBoolean("CHOCOLATE_KEY", hasChocolate);
 
         // call superclass to save any view hierarchy
         super.onSaveInstanceState(outState);
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         displayQuantity(quantity);
         if (price > 0) {
-            displayMessage(createOrderSummary(price, hasWhippedCream,hasChocolate));
+            displayMessage(createOrderSummary(price, hasWhippedCream, hasChocolate));
         }
     }
 
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         //displayMessage("Ordered coffee amount: " + quantity + "\n" + "Total: " + formatCurrency(calculatePrice(quantity,priceOfOneCup)) + "\n" + message);
         //int price = calculatePrice(quantity,priceOfOneCup);
         //displayPrice(price);
+
         if (hasWhippedCream && hasChocolate){
             price = calculatePrice(quantity, priceOfOneCup) + WHIPPED_CREAM_PRICE*quantity + CHOCOLATE_PRICE*quantity;
         }
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         else {
             price = calculatePrice(quantity, priceOfOneCup);
         }
-        displayMessage(createOrderSummary(price,hasWhippedCream,hasChocolate));
+        displayMessage(createOrderSummary(price, hasWhippedCream, hasChocolate));
     }
 
     /**
@@ -152,13 +154,13 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder sb = new StringBuilder();
         Formatter fmt = new Formatter(sb);
         fmt.format("Name: %1$s\nQuantity: %2$d\nTotal: %3$s\n%4$s", name, quantity, formatCurrency(price), message);
-        Log.v("MainActivity","Add whipped cream? " + creamIsChecked);
-        Log.v("MainActivity","Add chocolate? " + chocolateIsChecked);
+        Log.v("MainActivity", "Add whipped cream? " + creamIsChecked);
+        Log.v("MainActivity", "Add chocolate? " + chocolateIsChecked);
         if (creamIsChecked) {
-            sb.insert(sb.indexOf("\n") + 1, "Whipped cream added for " + formatCurrency(WHIPPED_CREAM_PRICE*quantity) + ".\n");
+            sb.insert(sb.indexOf("\n") + 1, "Whipped cream added for " + formatCurrency(WHIPPED_CREAM_PRICE * quantity) + ".\n");
         }
-        if (chocolateIsChecked){
-            sb.insert(sb.indexOf("\n") + 1, "Chocolate added for " + formatCurrency(CHOCOLATE_PRICE*quantity) + ".\n");
+        if (chocolateIsChecked) {
+            sb.insert(sb.indexOf("\n") + 1, "Chocolate added for " + formatCurrency(CHOCOLATE_PRICE * quantity) + ".\n");
         }
 
         return sb.toString();
@@ -194,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
         boolean checked = ((CheckBox) view).isChecked();
 
         // Check which checkbox was clicked
+
         switch(view.getId()) {
             case R.id.whipped_cream_checkbox: hasWhippedCream = checked;
                 break;
@@ -201,4 +204,5 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
 }
