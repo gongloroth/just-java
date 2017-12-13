@@ -27,14 +27,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="@string/whipped_cream_text" />
+            android:textSize="16sp"
+            android:paddingLeft="24dp"
+            android:text="@string/whipped_cream_text"
+            android:onClick="onCheckboxClicked"/>
 
         <CheckBox
             android:id="@+id/chocolate_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="@string/chocolate_text" />
+            android:textSize="16sp"
+            android:paddingLeft="24dp"
+            android:text="@string/chocolate_text"
+            android:onClick="onCheckboxClicked"/>
 
 
         <TextView

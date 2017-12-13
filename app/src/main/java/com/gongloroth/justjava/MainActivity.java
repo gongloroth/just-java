@@ -33,12 +33,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setWhippedCreamCheckBox(R.id.whipped_cream_checkbox);
+        setChocolateCheckBox(R.id.chocolate_checkbox);
+        /*
+        setWhippedCreamCheckBox(R.id.whipped_cream_checkbox);
         getWhippedCreamCheckBox().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (whippedCreamCheckBox.isChecked()){
-                    hasWhippedCream = true;
-                }
+                    hasWhippedCream = whippedCreamCheckBox.isChecked();
             }
         });
 
@@ -46,11 +47,9 @@ public class MainActivity extends AppCompatActivity {
         getWhippedCreamCheckBox().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (chocolateCheckBox.isChecked()){
-                    hasChocolate = true;
-                }
+                    hasChocolate = chocolateCheckBox.isChecked();
             }
-        });
+        }); */
     }
 
     @Override
@@ -87,25 +86,17 @@ public class MainActivity extends AppCompatActivity {
         //displayMessage("Ordered coffee amount: " + quantity + "\n" + "Total: " + formatCurrency(calculatePrice(quantity,priceOfOneCup)) + "\n" + message);
         //int price = calculatePrice(quantity,priceOfOneCup);
         //displayPrice(price);
-        if (getWhippedCreamCheckBox().isChecked() && getChocolateCheckBox().isChecked()){
+        if (hasWhippedCream && hasChocolate){
             price = calculatePrice(quantity, priceOfOneCup) + WHIPPED_CREAM_PRICE*quantity + CHOCOLATE_PRICE*quantity;
-            hasChocolate = true;
-            hasWhippedCream = true;
         }
-        else if (getWhippedCreamCheckBox().isChecked() && !getChocolateCheckBox().isChecked()) {
+        else if (hasWhippedCream && !hasChocolate) {
             price = calculatePrice(quantity, priceOfOneCup) + WHIPPED_CREAM_PRICE*quantity;
-            hasWhippedCream = true;
-            hasChocolate = false;
         }
-        else if (getChocolateCheckBox().isChecked() && !getWhippedCreamCheckBox().isChecked()){
+        else if (hasChocolate && !hasWhippedCream){
             price = calculatePrice(quantity, priceOfOneCup) + CHOCOLATE_PRICE*quantity;
-            hasChocolate = true;
-            hasWhippedCream = false;
         }
         else {
             price = calculatePrice(quantity, priceOfOneCup);
-            hasWhippedCream = false;
-            hasChocolate = false;
         }
         displayMessage(createOrderSummary(price,hasWhippedCream,hasChocolate));
     }
@@ -196,5 +187,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void setChocolateCheckBox(int id) {
         this.chocolateCheckBox = (CheckBox) findViewById(id);
+    }
+
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+
+        // Check which checkbox was clicked
+        switch(view.getId()) {
+            case R.id.whipped_cream_checkbox: hasWhippedCream = checked;
+                break;
+            case R.id.chocolate_checkbox: hasChocolate = checked;
+                break;
+        }
     }
 }
