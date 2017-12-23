@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">JustJava</string>
     <string name="quantity">quantity</string>
     <string name="decrement">-</string>
@@ -6,8 +6,12 @@
     <string name="price">order summary</string>
     <string name="order">order</string>
     <string name="price_default">0</string>
-    <string name="quantity_default">0</string>
+    <string name="quantity_default">1</string>
     <string name="toppings">toppings</string>
     <string name="whipped_cream_text">Whipped cream</string>
     <string name="chocolate_text">Chocolate</string>
+    <string name="your_name_here">Your name here</string>
+
+    <string name="order_summary_chocolate">Chocolate added for <xliff:g id="chocolatePrice" example="50">%s</xliff:g></string>
+    <string name="order_summary_whipped_cream">Whipped cream added for <xliff:g id="whippedCreamPrice" example="50">%s</xliff:g></string>
 </resources>
